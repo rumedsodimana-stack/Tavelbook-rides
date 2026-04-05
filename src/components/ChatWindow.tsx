@@ -65,7 +65,7 @@ export default function ChatWindow({ rideId, currentUserId, otherPartyName, onCl
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: 20, scale: 0.95 }}
-      className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 w-[350px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-6rem)] bg-[#0f172a]/90 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl flex flex-col overflow-hidden z-[500]"
+      className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 w-[350px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-6rem)] bg-[#07161d]/90 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl flex flex-col overflow-hidden z-[500]"
     >
       {/* Header */}
       <div className="px-5 py-4 border-b border-white/10 flex items-center justify-between bg-white/5">
@@ -99,8 +99,8 @@ export default function ChatWindow({ rideId, currentUserId, otherPartyName, onCl
                 <div 
                   className={cn(
                     "max-w-[80%] rounded-2xl px-4 py-2 text-sm",
-                    isMe 
-                      ? "bg-blue-500 text-white rounded-br-sm" 
+                    isMe
+                      ? "bg-amber-300 text-slate-950 rounded-br-sm font-medium"
                       : "bg-white/10 text-white rounded-bl-sm"
                   )}
                 >
@@ -121,12 +121,12 @@ export default function ChatWindow({ rideId, currentUserId, otherPartyName, onCl
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
             placeholder="Type a message..."
-            className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-4 pr-12 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition-colors"
+            className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-4 pr-12 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-amber-300 transition-colors"
           />
           <button 
             type="submit"
             disabled={!newMessage.trim()}
-            className="absolute right-2 p-2 bg-blue-500 rounded-full text-white disabled:opacity-50 disabled:bg-white/10 transition-colors"
+            className="absolute right-2 p-2 bg-amber-300 rounded-full text-slate-950 disabled:opacity-50 disabled:bg-white/10 transition-colors"
           >
             <Send className="w-4 h-4" />
           </button>

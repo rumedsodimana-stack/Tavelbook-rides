@@ -381,7 +381,7 @@ export default function RiderDashboard() {
   return (
     <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:gap-8 flex-1">
       {/* Map Section */}
-      <div className="lg:col-span-2 h-[350px] lg:h-full min-h-[350px] relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/20 border border-white/10 shrink-0">
+      <div className="lg:col-span-2 h-[350px] lg:h-full min-h-[350px] relative rounded-3xl overflow-hidden shadow-2xl shadow-black/30 border border-white/10 shrink-0">
         <RiderMap 
           userLocation={userLocation}
           destinationLocation={destinationLocation}
@@ -393,8 +393,8 @@ export default function RiderDashboard() {
         {/* Floating Map Controls/Stats */}
         <div className="absolute top-6 left-6 z-[400] flex flex-col gap-4">
           {rideStatus === 'accepted' || rideStatus === 'arriving' ? (
-            <GlassCard className="px-4 py-3 flex flex-col gap-1 border-blue-500/30 bg-blue-900/20">
-              <div className="flex items-center gap-2 text-blue-400">
+            <GlassCard className="px-4 py-3 flex flex-col gap-1 border-amber-300/20 bg-amber-500/10">
+              <div className="flex items-center gap-2 text-amber-300">
                 <Car className="w-4 h-4 animate-pulse" />
                 <span className="text-sm font-bold uppercase tracking-wider">Driver En Route</span>
               </div>
@@ -422,7 +422,7 @@ export default function RiderDashboard() {
               onClick={() => setActiveTab('book')}
               className={cn(
                 "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
-                activeTab === 'book' ? "bg-blue-500 text-white" : "text-white/60 hover:text-white"
+                activeTab === 'book' ? "bg-amber-300 text-slate-950" : "text-white/60 hover:text-white"
               )}
             >
               Book
@@ -431,7 +431,7 @@ export default function RiderDashboard() {
               onClick={() => setActiveTab('history')}
               className={cn(
                 "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
-                activeTab === 'history' ? "bg-blue-500 text-white" : "text-white/60 hover:text-white"
+                activeTab === 'history' ? "bg-amber-300 text-slate-950" : "text-white/60 hover:text-white"
               )}
             >
               History
@@ -440,7 +440,7 @@ export default function RiderDashboard() {
               onClick={() => setActiveTab('wallet')}
               className={cn(
                 "px-4 py-2 rounded-lg text-sm font-medium transition-colors",
-                activeTab === 'wallet' ? "bg-blue-500 text-white" : "text-white/60 hover:text-white"
+                activeTab === 'wallet' ? "bg-amber-300 text-slate-950" : "text-white/60 hover:text-white"
               )}
             >
               Wallet
@@ -458,8 +458,8 @@ export default function RiderDashboard() {
                 exit={{ opacity: 0, x: -20 }}
                 className="flex flex-col gap-4"
               >
-                <GlassCard className="p-6 bg-gradient-to-br from-blue-900/40 to-indigo-900/40 border-blue-500/30 text-center">
-                  <CreditCard className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+                <GlassCard className="p-6 bg-gradient-to-br from-teal-900/30 to-amber-900/10 border-amber-300/20 text-center">
+                  <CreditCard className="w-12 h-12 text-amber-300 mx-auto mb-4" />
                   <h4 className="text-lg font-semibold text-white/60 mb-1">Current Balance</h4>
                   <div className="text-4xl font-bold mb-6">${(profile?.walletBalance || 0).toFixed(2)}</div>
                   <Button 
@@ -485,7 +485,7 @@ export default function RiderDashboard() {
               >
                 {loadingHistory ? (
                   <div className="flex justify-center p-8">
-                    <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
+                    <div className="w-8 h-8 border-4 border-amber-300 border-t-transparent rounded-full animate-spin" />
                   </div>
                 ) : rideHistory.length === 0 ? (
                   <GlassCard className="p-8 text-center">
@@ -510,11 +510,11 @@ export default function RiderDashboard() {
                       
                       <div className="space-y-3 relative before:absolute before:inset-y-3 before:left-2.5 before:w-0.5 before:bg-white/10">
                         <div className="flex items-center gap-4 relative z-10">
-                          <div className="w-5 h-5 rounded-full bg-[#0f172a] border-4 border-green-500 flex-shrink-0" />
+                          <div className="w-5 h-5 rounded-full bg-[#07161d] border-4 border-green-500 flex-shrink-0" />
                           <span className="text-white/80 text-sm">{ride.origin}</span>
                         </div>
                         <div className="flex items-center gap-4 relative z-10">
-                          <div className="w-5 h-5 rounded-full bg-[#0f172a] border-4 border-indigo-500 flex-shrink-0" />
+                          <div className="w-5 h-5 rounded-full bg-[#07161d] border-4 border-teal-400 flex-shrink-0" />
                           <span className="text-white/80 text-sm">{ride.destination}</span>
                         </div>
                       </div>
@@ -534,8 +534,8 @@ export default function RiderDashboard() {
                 <GlassCard className="p-5 flex flex-col gap-5">
                   <div className="space-y-4">
                     {/* AI Concierge */}
-                    <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-2xl p-4">
-                      <div className="flex items-center gap-2 mb-3 text-blue-400">
+                    <div className="bg-gradient-to-r from-teal-500/10 to-amber-500/10 border border-amber-300/20 rounded-2xl p-4">
+                      <div className="flex items-center gap-2 mb-3 text-amber-300">
                         <Sparkles className="w-5 h-5" />
                         <span className="font-bold text-sm">AI Concierge</span>
                       </div>
@@ -546,12 +546,12 @@ export default function RiderDashboard() {
                           value={aiPrompt}
                           onChange={(e) => setAiPrompt(e.target.value)}
                           onKeyDown={(e) => e.key === 'Enter' && handleAiBooking()}
-                          className="w-full bg-black/20 border border-white/10 rounded-xl py-3 pl-4 pr-12 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition-colors"
+                          className="w-full bg-black/20 border border-white/10 rounded-xl py-3 pl-4 pr-12 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-amber-300 transition-colors"
                         />
                         <button 
                           onClick={handleAiBooking}
                           disabled={isAiProcessing || !aiPrompt.trim()}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-blue-500 rounded-lg text-white disabled:opacity-50 disabled:bg-white/10 transition-colors"
+                          className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-amber-300 rounded-lg text-slate-950 disabled:opacity-50 disabled:bg-white/10 transition-colors"
                         >
                           {isAiProcessing ? (
                             <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -565,14 +565,14 @@ export default function RiderDashboard() {
                     <div className="flex gap-2 mb-2">
                       <button 
                         onClick={() => setRideType('standard')} 
-                        className={cn("flex-1 py-3 rounded-xl border flex flex-col items-center gap-2 transition-all", rideType === 'standard' ? "bg-blue-500/20 border-blue-500 text-blue-400" : "border-white/10 text-white/60 hover:bg-white/5")}
+                        className={cn("flex-1 py-3 rounded-xl border flex flex-col items-center gap-2 transition-all", rideType === 'standard' ? "bg-amber-300/20 border-amber-300 text-amber-300" : "border-white/10 text-white/60 hover:bg-white/5")}
                       >
                         <Car className="w-6 h-6" />
                         <span className="text-sm font-bold">Standard</span>
                       </button>
                       <button 
                         onClick={() => setRideType('robotaxi')} 
-                        className={cn("flex-1 py-3 rounded-xl border flex flex-col items-center gap-2 transition-all", rideType === 'robotaxi' ? "bg-purple-500/20 border-purple-500 text-purple-400" : "border-white/10 text-white/60 hover:bg-white/5")}
+                        className={cn("flex-1 py-3 rounded-xl border flex flex-col items-center gap-2 transition-all", rideType === 'robotaxi' ? "bg-teal-500/20 border-teal-400 text-teal-400" : "border-white/10 text-white/60 hover:bg-white/5")}
                       >
                         <Zap className="w-6 h-6" />
                         <span className="text-sm font-bold">Robo Taxi</span>
@@ -596,7 +596,7 @@ export default function RiderDashboard() {
                         placeholder="Where to?" 
                         value={destinationText}
                         onChange={(e) => setDestinationText(e.target.value)}
-                        className="w-full bg-white/5 border border-white/20 rounded-xl py-3 pl-10 pr-4 text-white placeholder:text-white/40 focus:outline-none focus:border-blue-500 transition-colors"
+                        className="w-full bg-white/5 border border-white/20 rounded-xl py-3 pl-10 pr-4 text-white placeholder:text-white/40 focus:outline-none focus:border-amber-300 transition-colors"
                       />
                     </div>
                   </div>
@@ -636,10 +636,10 @@ export default function RiderDashboard() {
                 className="h-full flex flex-col items-center justify-center text-center p-8"
               >
                 <div className="relative w-24 h-24 mb-8">
-                  <div className="absolute inset-0 border-4 border-blue-500/30 rounded-full animate-ping" />
-                  <div className="absolute inset-2 border-4 border-indigo-500/50 rounded-full animate-pulse" />
+                  <div className="absolute inset-0 border-4 border-amber-300/20 rounded-full animate-ping" />
+                  <div className="absolute inset-2 border-4 border-teal-400/50 rounded-full animate-pulse" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Search className="w-8 h-8 text-blue-400 animate-bounce" />
+                    <Search className="w-8 h-8 text-amber-300 animate-bounce" />
                   </div>
                 </div>
                 <h3 className="text-2xl font-bold mb-2">Finding your driver</h3>
@@ -662,20 +662,20 @@ export default function RiderDashboard() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
               >
-                <GlassCard className="p-5 border-blue-500/50 shadow-lg shadow-blue-500/10">
+                <GlassCard className="p-5 border-amber-300/50 shadow-lg shadow-amber-300/10">
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center justify-between">
                       {activeRide?.providerId === 'tesla-network' ? (
                         <div className="flex items-center gap-4">
                           <div className="relative">
-                            <div className="w-14 h-14 rounded-full border-2 border-purple-500 bg-purple-500/20 flex items-center justify-center">
-                              <Zap className="w-8 h-8 text-purple-400" />
+                            <div className="w-14 h-14 rounded-full border-2 border-teal-400 bg-teal-400/20 flex items-center justify-center">
+                              <Zap className="w-8 h-8 text-teal-400" />
                             </div>
                             <div className="absolute -bottom-1 -right-1 bg-green-500 w-4 h-4 rounded-full border-2 border-[#0f172a]" />
                           </div>
                           <div>
-                            <h4 className="font-bold text-lg text-purple-400">Tesla Cybercab</h4>
-                            <div className="flex items-center gap-1 text-purple-400/60 text-sm font-medium">
+                            <h4 className="font-bold text-lg text-teal-400">Tesla Cybercab</h4>
+                            <div className="flex items-center gap-1 text-teal-400/60 text-sm font-medium">
                               <span>Autonomous Network</span>
                             </div>
                           </div>
@@ -686,7 +686,7 @@ export default function RiderDashboard() {
                             <img 
                               src="https://picsum.photos/seed/driver1/100/100" 
                               alt="Driver" 
-                              className="w-14 h-14 rounded-full border-2 border-blue-500 object-cover"
+                              className="w-14 h-14 rounded-full border-2 border-amber-300 object-cover"
                               referrerPolicy="no-referrer"
                             />
                             <div className="absolute -bottom-1 -right-1 bg-green-500 w-4 h-4 rounded-full border-2 border-[#0f172a]" />

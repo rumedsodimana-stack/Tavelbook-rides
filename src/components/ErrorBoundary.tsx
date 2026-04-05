@@ -26,7 +26,7 @@ export class ErrorBoundary extends Component<Props, State> {
   public render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen bg-[#0f172a] text-white flex items-center justify-center p-6">
+        <div className="min-h-screen bg-[#07161d] text-white flex items-center justify-center p-6">
           <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 max-w-lg w-full text-center">
             <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,7 +38,7 @@ export class ErrorBoundary extends Component<Props, State> {
               {this.state.error?.message || 'An unexpected error occurred.'}
             </p>
             <button
-              className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-xl font-medium transition-colors"
+              className="bg-amber-300 hover:bg-amber-200 text-slate-950 px-6 py-2 rounded-xl font-medium transition-colors"
               onClick={() => window.location.reload()}
             >
               Reload Application

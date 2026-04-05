@@ -66,9 +66,9 @@ const Button = ({
   disabled?: boolean
 }) => {
   const variants = {
-    primary: "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-lg shadow-blue-500/30 hover:scale-105 active:scale-95",
+    primary: "bg-amber-300 text-slate-950 font-bold shadow-lg shadow-amber-300/20 hover:scale-105 active:scale-95 hover:bg-amber-200",
     secondary: "bg-white/20 backdrop-blur-md text-white border border-white/30 hover:bg-white/30",
-    outline: "bg-transparent border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white",
+    outline: "bg-transparent border-2 border-amber-300 text-amber-300 hover:bg-amber-300 hover:text-slate-950",
     ghost: "bg-transparent text-white/70 hover:text-white hover:bg-white/10"
   };
 
@@ -332,11 +332,11 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#0f172a] flex items-center justify-center">
+      <div className="min-h-screen bg-[#07161d] flex items-center justify-center">
         <motion.div 
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full"
+          className="w-12 h-12 border-4 border-amber-300 border-t-transparent rounded-full"
         />
       </div>
     );
@@ -344,10 +344,10 @@ export default function App() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-[#0f172a] relative overflow-hidden flex items-center justify-center p-6">
+      <div className="min-h-screen bg-[#07161d] relative overflow-hidden flex items-center justify-center p-6">
         {/* Animated Background Blobs */}
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/20 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-600/20 blur-[120px] rounded-full animate-pulse delay-700" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-teal-500/10 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-amber-500/10 blur-[120px] rounded-full animate-pulse delay-700" />
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -355,11 +355,11 @@ export default function App() {
           className="max-w-4xl w-full"
         >
           <GlassCard className="p-8 md:p-12 text-center relative z-10">
-            <div className="inline-flex p-4 bg-blue-500/20 rounded-3xl mb-6">
-              <Car className="w-12 h-12 text-blue-400" />
+            <div className="inline-flex p-4 bg-amber-300/10 rounded-3xl mb-6">
+              <Car className="w-12 h-12 text-amber-300" />
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-              RideConnect <span className="text-blue-400">Provider</span>
+              TravelBook <span className="text-amber-300">Rides</span>
             </h1>
             <p className="text-xl text-white/60 mb-10 max-w-2xl mx-auto leading-relaxed">
               The professional gateway for transportation providers. Register your fleet, 
@@ -384,7 +384,7 @@ export default function App() {
               ].map((feature, i) => (
                 <div key={i} className="text-center">
                   <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/10">
-                    <feature.icon className="w-6 h-6 text-blue-400" />
+                    <feature.icon className="w-6 h-6 text-amber-300" />
                   </div>
                   <h3 className="text-white font-semibold mb-2">{feature.title}</h3>
                   <p className="text-white/40 text-sm">{feature.desc}</p>
@@ -398,7 +398,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0f172a] text-white font-sans">
+    <div className="min-h-screen bg-[#07161d] text-white font-sans">
       {/* Sidebar / Bottom Navigation */}
       <nav className="fixed bottom-4 left-4 right-4 md:left-6 md:right-auto md:top-1/2 md:-translate-y-1/2 md:translate-x-0 z-[9999]">
         <GlassCard className="p-2 flex justify-between md:flex-col gap-2 w-full md:w-auto">
@@ -414,7 +414,7 @@ export default function App() {
                 onClick={() => setActiveTab(item.id as any)}
                 className={cn(
                   "p-3 md:p-4 rounded-2xl transition-all duration-300 flex flex-col items-center gap-1 flex-1 md:flex-none",
-                  activeTab === item.id ? "bg-blue-500 text-white shadow-lg shadow-blue-500/40" : "text-white/40 hover:text-white hover:bg-white/5"
+                  activeTab === item.id ? "bg-amber-300 text-slate-950 shadow-lg shadow-amber-300/20" : "text-white/40 hover:text-white hover:bg-white/5"
                 )}
               >
                 <item.icon className="w-5 h-5 md:w-6 md:h-6" />
@@ -479,7 +479,7 @@ export default function App() {
               className="flex flex-col lg:grid lg:grid-cols-3 gap-6 lg:gap-8 flex-1"
             >
               {/* Map Section - Takes up 2 columns on large screens */}
-              <div className="lg:col-span-2 h-[350px] lg:h-full min-h-[350px] relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/20 border border-white/10 shrink-0">
+              <div className="lg:col-span-2 h-[350px] lg:h-full min-h-[350px] relative rounded-3xl overflow-hidden shadow-2xl shadow-black/30 border border-white/10 shrink-0">
                 <RideMap 
                   rides={rideMarkers} 
                   driverLocation={driverLocation}
@@ -558,7 +558,7 @@ export default function App() {
                           </div>
                           <div className="w-px h-6 bg-white/10 ml-2.5" />
                           <div className="flex items-start gap-3">
-                            <Navigation className="w-5 h-5 text-indigo-400 mt-0.5 shrink-0" />
+                            <Navigation className="w-5 h-5 text-teal-400 mt-0.5 shrink-0" />
                             <div>
                               <p className="text-[10px] text-white/40 uppercase font-bold tracking-wider">Drop-off</p>
                               <p className="text-base font-medium">{acceptedRide.destination}</p>
@@ -586,11 +586,11 @@ export default function App() {
                   ) : (
                     // Pending Rides List
                     openRides.map((ride) => (
-                      <GlassCard key={ride.id} className="p-5 hover:border-blue-500/50 transition-all cursor-pointer group hover:shadow-lg hover:shadow-blue-500/20">
+                      <GlassCard key={ride.id} className="p-5 hover:border-amber-300/50 transition-all cursor-pointer group hover:shadow-lg hover:shadow-amber-300/10">
                         <div className="flex flex-col gap-4">
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
-                              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center font-bold shadow-inner">
+                              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-400 to-amber-400 flex items-center justify-center font-bold shadow-inner">
                                 {ride.travelerName.charAt(0)}
                               </div>
                               <div>
@@ -598,7 +598,7 @@ export default function App() {
                                 <p className="text-white/40 text-xs">Requested recently</p>
                               </div>
                             </div>
-                            <div className="flex items-center gap-1 text-blue-400 font-bold bg-blue-500/10 px-3 py-1 rounded-full">
+                            <div className="flex items-center gap-1 text-amber-300 font-bold bg-amber-300/10 px-3 py-1 rounded-full">
                               <Users className="w-4 h-4" />
                               <span>{ride.passengers}</span>
                             </div>
@@ -606,7 +606,7 @@ export default function App() {
                           
                           <div className="space-y-3 bg-black/20 p-3 rounded-2xl border border-white/5">
                             <div className="flex items-start gap-3">
-                              <MapPin className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
+                              <MapPin className="w-4 h-4 text-amber-300 mt-0.5 shrink-0" />
                               <div>
                                 <p className="text-[10px] text-white/40 uppercase font-bold tracking-wider">Pickup</p>
                                 <p className="text-sm font-medium">{ride.origin}</p>
@@ -614,7 +614,7 @@ export default function App() {
                             </div>
                             <div className="w-px h-4 bg-white/10 ml-2" />
                             <div className="flex items-start gap-3">
-                              <Navigation className="w-4 h-4 text-indigo-400 mt-0.5 shrink-0" />
+                              <Navigation className="w-4 h-4 text-teal-400 mt-0.5 shrink-0" />
                               <div>
                                 <p className="text-[10px] text-white/40 uppercase font-bold tracking-wider">Drop-off</p>
                                 <p className="text-sm font-medium">{ride.destination}</p>
@@ -651,7 +651,7 @@ export default function App() {
               </div>
 
               {showAddVehicle && (
-                <GlassCard className="p-6 border-blue-500/30">
+                <GlassCard className="p-6 border-amber-300/30">
                   <h4 className="text-xl font-bold mb-4">Add New Vehicle</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <input type="text" placeholder="Make (e.g. Toyota)" value={newVehicle.make} onChange={e => setNewVehicle({...newVehicle, make: e.target.value})} className="bg-black/20 border border-white/10 rounded-xl py-3 px-4 text-white" />
@@ -698,16 +698,16 @@ export default function App() {
                       <div className="flex justify-between items-center pt-4 border-t border-white/10">
                         <div className="flex gap-2">
                           <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
-                            <ShieldCheck className="w-4 h-4 text-blue-400" />
+                            <ShieldCheck className="w-4 h-4 text-amber-300" />
                           </div>
                           <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
-                            <Users className="w-4 h-4 text-indigo-400" />
+                            <Users className="w-4 h-4 text-teal-400" />
                             <span className="text-xs ml-1">{vehicle.capacity}</span>
                           </div>
                         </div>
                         <Button 
                           variant={activeVehicleId === vehicle.id ? "primary" : "ghost"}
-                          className={cn("text-sm px-4 py-2", activeVehicleId === vehicle.id ? "bg-blue-500 text-white" : "")}
+                          className={cn("text-sm px-4 py-2", activeVehicleId === vehicle.id ? "bg-amber-300 text-slate-950" : "")}
                           onClick={() => setActiveVehicleId(vehicle.id!)}
                         >
                           {activeVehicleId === vehicle.id ? "Active" : "Select"}
@@ -763,8 +763,8 @@ export default function App() {
             >
               <GlassCard className="flex-1 flex flex-col">
                 <div className="p-6 border-b border-white/10 flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-blue-500/20 flex items-center justify-center">
-                    <MessageSquare className="w-6 h-6 text-blue-400" />
+                  <div className="w-12 h-12 rounded-2xl bg-amber-300/10 flex items-center justify-center">
+                    <MessageSquare className="w-6 h-6 text-amber-300" />
                   </div>
                   <div>
                     <h3 className="font-bold">Gemini Support</h3>
@@ -774,9 +774,9 @@ export default function App() {
                 
                 <div className="flex-1 p-6 overflow-y-auto space-y-4">
                   <div className="flex gap-4 max-w-[80%]">
-                    <div className="w-8 h-8 rounded-lg bg-blue-500 shrink-0 flex items-center justify-center text-xs font-bold">G</div>
+                    <div className="w-8 h-8 rounded-lg bg-amber-300 shrink-0 flex items-center justify-center text-xs font-bold text-slate-950">G</div>
                     <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-sm leading-relaxed">
-                      Hello! I'm your RideConnect AI assistant. How can I help you manage your fleet or find more rides today?
+                      Hello! I'm your TravelBook Rides AI assistant. How can I help you manage your fleet or find more rides today?
                     </div>
                   </div>
                 </div>
@@ -786,7 +786,7 @@ export default function App() {
                     <input 
                       type="text" 
                       placeholder="Ask anything..."
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-blue-500/50 transition-all"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-amber-300/50 transition-all"
                     />
                     <div className="absolute right-2 top-1/2 -translate-y-1/2">
                       <Button className="px-4 py-2 text-sm">Send</Button>
