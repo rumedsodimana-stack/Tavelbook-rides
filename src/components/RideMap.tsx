@@ -18,8 +18,8 @@ const createCustomIcon = (passengers: number, isAccepted: boolean = false) => {
     className: 'custom-marker',
     html: `
       <div class="relative flex items-center justify-center w-12 h-12">
-        <div class="absolute inset-0 ${isAccepted ? 'bg-green-500' : 'bg-amber-300'} rounded-full animate-ping opacity-20"></div>
-        <div class="relative z-10 flex items-center justify-center w-10 h-10 ${isAccepted ? 'bg-gradient-to-br from-green-400 to-emerald-600' : 'bg-gradient-to-br from-teal-400 to-amber-400'} rounded-full shadow-lg border-2 border-white/20 backdrop-blur-md text-white font-bold">
+        <div class="absolute inset-0 ${isAccepted ? 'bg-green-500' : 'bg-blue-500'} rounded-full animate-ping opacity-20"></div>
+        <div class="relative z-10 flex items-center justify-center w-10 h-10 ${isAccepted ? 'bg-gradient-to-br from-green-400 to-emerald-600' : 'bg-gradient-to-br from-blue-400 to-indigo-600'} rounded-full shadow-lg border-2 border-white/20 backdrop-blur-md text-white font-bold">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           ${passengers}
         </div>
@@ -87,7 +87,7 @@ export default function RideMap({ rides, driverLocation, acceptedRide, onAcceptR
   const currentLocation = driverLocation || localUserLocation;
 
   return (
-    <div className="w-full h-full rounded-3xl overflow-hidden border border-white/10 relative z-0 bg-[#07161d]">
+    <div className="w-full h-full rounded-3xl overflow-hidden border border-white/10 relative z-0 bg-[#0f172a]">
       <MapContainer 
         center={currentLocation} 
         zoom={14} 
@@ -146,18 +146,18 @@ export default function RideMap({ rides, driverLocation, acceptedRide, onAcceptR
                   <h4 className="font-bold text-lg mb-2">{ride.travelerName}</h4>
                   <div className="space-y-2 mb-4">
                     <div className="flex items-start gap-2 text-sm">
-                      <MapPin className="w-4 h-4 text-teal-400 mt-0.5 shrink-0" />
+                      <MapPin className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
                       <span className="text-gray-700">{ride.origin}</span>
                     </div>
                     <div className="flex items-start gap-2 text-sm">
-                      <Navigation className="w-4 h-4 text-teal-400 mt-0.5 shrink-0" />
+                      <Navigation className="w-4 h-4 text-indigo-500 mt-0.5 shrink-0" />
                       <span className="text-gray-700">{ride.destination}</span>
                     </div>
                   </div>
                   {!isAccepted ? (
                     <button 
                       onClick={() => onAcceptRide?.(ride.id)}
-                      className="w-full bg-amber-300 text-slate-950 font-bold py-2 rounded-xl hover:scale-105 transition-transform"
+                      className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-2 rounded-xl font-bold hover:scale-105 transition-transform"
                     >
                       Accept Ride
                     </button>

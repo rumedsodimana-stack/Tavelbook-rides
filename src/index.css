@@ -3,7 +3,7 @@
 
 /* Custom Leaflet overrides for dark theme/glassmorphism */
 .leaflet-container {
-  background: #07161d;
+  background: #0f172a;
   font-family: inherit;
 }
 .leaflet-popup-content-wrapper {
@@ -43,28 +43,4 @@
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
-}
-
-/* TravelBook Design System */
-body {
-  background: #07161d;
-  color: #ffffff;
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
 }

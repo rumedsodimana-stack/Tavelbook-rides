@@ -1,5 +1,5 @@
 {
-  "name": "RideConnect Provider",
+  "name": "Travelbook Rides",
   "description": "A platform for transportation providers to register vehicles and find ride requests from the Travel Book social network.",
   "requestFramePermissions": [
     "camera",
